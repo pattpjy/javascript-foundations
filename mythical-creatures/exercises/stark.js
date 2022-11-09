@@ -1,23 +1,16 @@
 const Direwolf = require("./direwolf")
 
 class Stark{
-    constructor(obj){
-        this.name = obj.name
-        this.location = obj.area || 'Winterfell'
+    constructor(starkObj){
+        this.name = starkObj.name
+        this.location = starkObj.area || 'Winterfell'
         this.safe = false
-        
     }
     sayHouseWords(){
-    if (this.safe === false){
-       return 'Winter is Coming'
-    }else{
+        if(this.safe === true){
         return 'The North Remembers'
+        } 
+    return 'Winter is Coming'
     }
-    }
-   callDirewolf(wolfName){
-    var callWolf = new Direwolf(wolfName,this.location)
-    callWolf.protect(this)
-    return callWolf
-   }
 }
 module.exports = Stark

@@ -8,9 +8,10 @@ describe('Sphinx', () => {
 
   it('should have no name', () => {
     // instantiate a Sphinx object with no arguments
+    var Lala = new Sphinx()
 
     // assert that the spinx's name is null
-
+    assert.equal(Lala.name, null)
     //NOTE: We will not ask you to write your own tests in a mod 1 assessment, but it is good practice to prepare for mod 2!
   });
 
@@ -158,6 +159,7 @@ describe('Sphinx', () => {
     sphinx.collectRiddle(riddle2);
     sphinx.attemptAnswer('short');
     const rage = sphinx.attemptAnswer('Halfway, after that it\'s running out.');
+    
 
     assert.equal(rage, 'PSSSSSSS THIS HAS NEVER HAPPENED, HOW DID YOU KNOW THE ANSWER WAS \"Halfway, after that it\'s running out.\"???');
   });

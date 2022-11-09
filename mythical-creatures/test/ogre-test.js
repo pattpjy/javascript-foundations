@@ -15,7 +15,7 @@ describe('Ogre', () => {
     assert.equal(ogre.home, 'Swamp');
   });
 
-  it('Should be able to have a dirfferent home', function() {
+  it('Should be able to have a different home', function() {
     const ogre = new Ogre({name: 'Brak', abode: 'The Ritz'});
     assert.equal(ogre.home, 'The Ritz');
   });
@@ -31,40 +31,39 @@ describe('Ogre', () => {
     assert.equal(human.encounterCounter, 1);
   });
 
-  it('', function() {
+  it('Human notice ogre when encounter twice', function() {
     const ogre = new Ogre({name: 'Brak'});
     const human = new Human('Jane');
 
-    var count = ogre.encounter(human);
-    console.log(count, '39')
+    ogre.encounter(human);//1
+    ogre.encounter(human);//2
+    assert.equal(human.noticesOgre(), false);
+
+    ogre.encounter(human);//3
+    
+    assert.equal(human.noticesOgre(), true);
+  });
+
+  it('Not notice Ogre when encounter 0,2,5 times', function() {
+    const ogre = new Ogre({name: 'Brak'});
+    const human = new Human('Jane');
+
+    assert.equal(human.noticesOgre(), false);
+
     ogre.encounter(human);
-    console.log(ogre.encounter(human), '41')
+    ogre.encounter(human);
+    ogre.encounter(human);
+    assert.equal(human.noticesOgre(), true);
+
+    ogre.encounter(human);
+    ogre.encounter(human);
     assert.equal(human.noticesOgre(), false);
 
     ogre.encounter(human);
     assert.equal(human.noticesOgre(), true);
   });
 
-  it.skip('', function() {
-    const ogre = new Ogre({name: 'Brak'});
-    const human = new Human('Jane');
-
-    assert.equal(human.noticesOgre(), false);
-
-    ogre.encounter(human);
-    ogre.encounter(human);
-    ogre.encounter(human);
-    assert.equal(human.noticesOgre(), true);
-
-    ogre.encounter(human);
-    ogre.encounter(human);
-    assert.equal(human.noticesOgre(), false);
-
-    ogre.encounter(human);
-    assert.equal(human.noticesOgre(), true);
-  });
-
-  it.skip('', function() {
+  it('Should have swing count when swing at human', function() {
     const ogre = new Ogre({name: 'Brak'});
     const human = new Human('Jane');
 
@@ -74,21 +73,23 @@ describe('Ogre', () => {
     assert.equal(ogre.swings, 1);
   });
 
-  it.skip('', function() {
+  it('Swing when human noticed and add 1 swing count', function() {
     const ogre = new Ogre({name: 'Brak'});
     const human = new Human('Jane');
 
-    ogre.encounter(human);
+    ogre.encounter(human); 
+  
     assert.equal(ogre.swings, 0);
 
-    ogre.encounter(human);
-    ogre.encounter(human);
+    ogre.encounter(human); 
+
+    ogre.encounter(human); 
 
     assert.equal(human.noticesOgre(), true);
     assert.equal(ogre.swings, 1);
   });
 
-  it.skip('', function() {
+  it('Should knocked out human ', function() {
     const ogre = new Ogre({name: 'Brak'});
     const human = new Human('Jane');
 
@@ -99,13 +100,12 @@ describe('Ogre', () => {
     ogre.encounter(human);
     ogre.encounter(human);
     ogre.encounter(human);
-
     assert.equal(human.encounterCounter, 6);
     assert.equal(ogre.swings, 2);
     assert.equal(human.knockedOut, true);
   });
 
-  it.skip('', function() {
+  it('Should knocked out a human after...', function() {
     const ogre = new Ogre({name: 'Brak'});
     const human = new Human('Jane');
 

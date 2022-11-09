@@ -114,6 +114,7 @@ describe('Direwolf', function() {
     direwolf2.protect(stark3);
     direwolf2.protect(stark4);
     direwolf2.protect(stark5);
+  
 
     assert.equal(direwolf1.starksToProtect.length, 2);
     assert.equal(direwolf1.starksToProtect[0].name, 'Sansa');

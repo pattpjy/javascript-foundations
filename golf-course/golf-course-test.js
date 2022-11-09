@@ -41,8 +41,9 @@ describe('Golf Course', function () {
     golfCourse.checkInGroup(group1);
     assert.equal(golfCourse.openings, 5);
     assert.deepEqual(golfCourse.currentlyPlaying, ['Kevin', 'Ted', 'Pat']);
-
+    
     golfCourse.checkInGroup(group2);
+  
     assert.equal(golfCourse.openings, 3);
     assert.deepEqual(golfCourse.currentlyPlaying, ['Bridget', 'Joanna', 'Kevin', 'Ted', 'Pat']);
   });
@@ -97,7 +98,7 @@ describe('Golfer', function () {
     assert.equal(golfer2.calculateAvg(par2), 'I usually shoot a 85 on average.');
   });
 
-  it('should become frustrated based on the course difficulty (HARD or MODERATE - golf is never easy)', function () {
+  it('should become frustrated based on the course difficulty (c or MODERATE - golf is never easy)', function () {
     var golfer1 = new Golfer({ name: 'Thomas', handicap: 15 });
     var golfer2 = new Golfer({ name: 'Margit', handicap: 4 });
     var golfCourse1 = new GolfCourse('Bear Dance', 'hard', 44, ['elevation', 'views']);

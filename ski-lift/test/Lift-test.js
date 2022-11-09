@@ -44,7 +44,7 @@ describe("Ski Lift", function () {
     assert.instanceOf(lift.skiers[1], Skier);
   });
 
-  it.skip('should only seat skiers if there are enough spots', function() {
+  it('should only seat skiers if there are enough spots', function() {
     var lift = new Lift(2);
 
     lift.admitSkier('Hannah', true);
@@ -58,7 +58,7 @@ describe("Ski Lift", function () {
     assert.equal(admit, 'Sorry, Kayla. Please wait for the next lift!')
   });
 
-  it.skip('should only seat skiers that have lift tickets', function () {
+  it('should only seat skiers that have lift tickets', function () {
     var lift = new Lift(1);
 
     var admit = lift.admitSkier('Hannah', false);
@@ -71,7 +71,7 @@ describe("Ski Lift", function () {
     assert.equal(admit, 'Sorry, Hannah. You need a lift ticket!')
   });
 
-  it.skip('should lower the safety bar once all skier positions are filled', function() {
+  it('should lower the safety bar once all skier positions are filled', function() {
     var lift = new Lift(4);
 
     lift.admitSkier('Hannah', false);
@@ -79,14 +79,14 @@ describe("Ski Lift", function () {
     lift.admitSkier('Will', true);
     lift.admitSkier('Eric', true);
     lift.admitSkier('Leta', true);
-    
+    console.log(lift.skiers.length)
     lift.startLift();
 
     assert.deepEqual(lift.skiers.length, 4);
     assert.equal(lift.safetyBar, 'down');
   });
 
-  it.skip('should not lower the safety bar until all skier positions are filled', function () {
+  it('should not lower the safety bar until all skier positions are filled', function () {
     var lift1 = new Lift(4);
     var lift2 = new Lift(3)
 
@@ -109,7 +109,7 @@ describe("Ski Lift", function () {
     assert.equal(lift2.safetyBar, 'up');
   });
 
-  it.skip('should know how many skiers are needed before starting', function () {
+  it('should know how many skiers are needed before starting', function () {
     var lift1 = new Lift(4);
     var lift2 = new Lift(3);
 
